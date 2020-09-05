@@ -1,5 +1,5 @@
 <h1>sono edit</h1>
-<input type="text" name="name" value="{{ $movie->titolo }}">
+<p>{{ $movie->titolo }}</p>
 <form action="{{route('movies.update' , $movie->id)}}" method="post">
   @csrf
   @method('PUT')
@@ -10,10 +10,10 @@
   <input type="text" name="description" placeholder="description" value="{{$movie->description}}"><br>
 
   <label>voto</label>
-  <input type="number" name="voto" placeholder="voto" value="{{$movie->voto}}"><br>
+  <input type="data" name="voto" placeholder="voto" value="{{$movie->voto}}"><br>
 
   <label>anno</label>
-  <input type="number" name="anno" placeholder="anno" value="{{$movie->anno}}"><br>
+  <input type="text" name="anno" placeholder="anno" value="{{$movie->anno}}"><br>
 
   <input type="submit" value="Invia">
 </form>

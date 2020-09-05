@@ -37,6 +37,8 @@ class MovieController extends Controller
      */
     public function store(Request $request)
     {
+
+
       $data = $request->all();
       //validiamo
       $movieNew = new Movie;
@@ -81,6 +83,8 @@ class MovieController extends Controller
      */
     public function update(Request $request, Movie $movie)
     {
+      $request->validate($this->getValidationRules());
+
       $data = $request->all();
       $movie->update($data);
 
@@ -93,8 +97,20 @@ class MovieController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Movie $movie)
     {
-        //
+      $movie->delete();
+
+      return redirect()->route('movies.index');
     }
+
+
+    protected function getValidationRules() {
+     return [
+       'titolo' => 'required|max:255',
+       'description' => 'required',
+       'anno' => 'required|integer|min:1895|max:2020',
+       'voto' => 'required|integer|min:1|max:10',
+     ];
+   }
 }
