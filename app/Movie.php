@@ -8,8 +8,8 @@ class Movie extends Model
 {
   protected $fillable = [
     'titolo',
-    'year',
+    'anno',
     'description',
-    'rating'
+    'voto'
   ];
 }

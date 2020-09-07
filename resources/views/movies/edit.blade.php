@@ -7,7 +7,7 @@
   <input type="text" name="titolo" placeholder="titolo" value="{{$movie->titolo}}"><br>
 
   <label>description</label>
-  <textarea name="description" rows="8" cols="80" value="{{$movie->description}}"></textarea>
+  <textarea name="description" rows="8" cols="80">{{$movie->description}}</textarea>
 
   <label>voto</label>
   <input type="number" name="voto" placeholder="voto" value="{{$movie->voto}}"><br>
